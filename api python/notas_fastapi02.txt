@@ -1,0 +1,56 @@
+
+El proceso de configuración de un entorno virtual para desarrollar una API con FastAPI y Python implica crear una carpeta dedicada, activar el entorno virtual y luego instalar las bibliotecas necesarias. Entre estas bibliotecas se incluyen FastAPI, que permite crear APIs de forma rápida y sencilla; uvicorn, un servidor ASGI para ejecutar la API; pyodbc, para la conexión con bases de datos SQL Server; sqlalchemy, databases y asyncpg para la gestión y acceso a bases de datos; y alembic, para realizar migraciones de esquemas de bases de datos de forma sencilla. Una vez instaladas estas bibliotecas utilizando pip, se escribe el código en un archivo main.py para definir las rutas y métodos de la API. Después de ejecutar el servidor web con uvicorn, se puede probar la API utilizando herramientas como Postman y accediendo a la documentación generada automáticamente por FastAPI. Es fundamental mantener el entorno virtual activo para evitar errores. Si surge algún problema, como la desconexión del entorno virtual, se puede solucionar reactivándolo y reiniciando el servidor web. Con este proceso, se logra crear una API funcional y probada, lista para ser implementada y utilizada en aplicaciones.
+
+
+
+00.-crear carpeta
+0.-ir alaraiz del lugar donde quiero crear el entorno virtual y ejecutar cmd sobre la ruta
+00.- abrir terminal.
+3.- python -m venv venv  o py -m venv venv
+4.- ".\venv\Scripts\Activate"
+2.- pip freeze > requirements.txt
+1.- pip install fastapi
+5.-pip install uvicorn
+6.-pip install pyodbc o py -m pip install pyodbc
+7.-Consulte la lista de paquetes instalados con pip list.
+8.-pip install docker
+9.- docker-compose up -d
+10.- pip install sqlalchemy databases asyncpg alembic
+11.-   uvicorn main:app --reload
+------------
+1.- crear archivo main.py
+----------------
+
+escribir codigo 
+
+'''from fastapi import FastAPI, HTTPException
+
+app = FastAPI()
+
+@app.get("/")
+def root():
+    return {"message": "Hello World"}'''
+    
+    ------------
+    ejecutar:
+
+    uvicorn main:app --reload
+    --------------
+     abrimos el navegador en la direccion 
+    http://127.0.0.1:8000/docs
+
+    y vamos a postman y seleccionamos get y vemos que funciona la api.
+---------
+da error se desconecta el entorno virtual , ejecutar 
+.\venv\Scripts\Activate
+________________
+Después de activar el entorno virtual, intenta ejecutar tu aplicación nuevamente con el comando:
+
+uvicorn main:app --reload
+----
+con postman abierto ingresamos  nuevo proyecto tipo post y la url:
+http://127.0.0.1:8000/docs
+nos da unarespuest 200.
+
+
+(https://www.youtube.com/watch?v=wcbxMRgu9bE)

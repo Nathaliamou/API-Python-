@@ -1,0 +1,29 @@
+1.- crer archivo docker .
+
+2.- ingresar codigo 
+
+'''
+version: '3'
+
+services:
+  postgress:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumen: 
+      - postgress_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+  '''
+
+  
+3.- ejecutar :
+
+docker-compose up -d
